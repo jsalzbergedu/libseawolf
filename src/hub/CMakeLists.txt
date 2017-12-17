@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.1.3)
+add_executable(seawolf-hub config.c hub.c logging.c netio.c netloop.c process.c var.c client.c)
+target_link_libraries(seawolf-hub "${DEFAULT_LIBRARIES}" pthread seawolf)
+install( TARGETS seawolf-hub DESTINATION "bin")

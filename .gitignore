@@ -13,3 +13,5 @@
 /src/python/build/
 /doc/html/
 /doc/hub/html/
+build/*
+/build/

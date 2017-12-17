@@ -1,3 +1,5 @@
+#include <math.h>
+
 /**
  * \file
  * \brief PID controller
@@ -112,7 +114,7 @@ double PID_update(PID* pid, double pv) {
 	This will also prevent I from over-saturating and from having a
 	residual effect when system reaches set point */
 	if (pid->active_region > 0) {
-	    if (abs(e) > pid->active_region) {
+	    if (fabs(e) > pid->active_region) {
 	        pid->e_dt = 0;
             }
         }
