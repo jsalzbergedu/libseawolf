@@ -12,6 +12,7 @@ build() {
     mkdir build
     pushd build
     cmake .. -GNinja
+    ninja
     ninja pylib
     popd
     popd
