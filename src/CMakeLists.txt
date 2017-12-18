@@ -7,20 +7,13 @@ set(LIBSEAWOLF_SOVERSION 0)
 set_target_properties(seawolf PROPERTIES VERSION ${LIBSEAWOLF_VERSION})
 set_target_properties(seawolf PROPERTIES SOVERSION ${LIBSEAWOLF_SOVERSION})
 
-# From https://stackoverflow.com/questions/18706942/create-a-custom-symbolic-link-to-a-library-at-install-time-with-cmake -- generate a libseawolf.so.0
-SET(legacy_link   ${CMAKE_INSTALL_PREFIX}/libseawolf.so)
-SET(legacy_target ${CMAKE_INSTALL_PREFIX}/libseawolf.so.0)
-ADD_CUSTOM_COMMAND( OUTPUT ${legacy_link}
-  COMMAND ln -s ${legacy_target} ${legacy_link}
-  DEPENDS install seawolf
-  COMMENT "Generating legacy symbolic link")
-ADD_CUSTOM_TARGET(install_legacy DEPENDS ${legacy_link} )
-
-
-
 add_library(Seawolf::Lib ALIAS seawolf)
 target_link_libraries(seawolf "${DEFAULT_LIBRARIES}")
+
 install(TARGETS seawolf DESTINATION "lib")
+install(CODE
+  "execute_process( COMMAND bash ln -s \"${CMAKE_INSTALL_PREFIX}\"/libseawolf.so \"${CMAKE_INSTALL_PREFIX}\"/libseawolf.so.0)")
 install(DIRECTORY ${LIBSEAWOLF_TOPLEVEL}/include DESTINATION include/seawolf)
+
 add_subdirectory(hub)
 add_subdirectory(python)
