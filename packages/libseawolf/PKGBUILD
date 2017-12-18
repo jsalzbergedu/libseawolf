@@ -1,0 +1,22 @@
+pkgname=libseawolf
+pkgver=1
+pkgrel=1
+arch=('i686' 'x86_64')
+pkgdesc='Basic data structures and utilities for seawolf.'
+source=('git+https://github.com/jsalzbergedu/libseawolf.git#branch=cmake-and-clang')
+md5sums=('SKIP')
+
+build() {
+    pushd libseawolf
+    mkdir build
+    pushd build
+    cmake .. -GNinja
+    ninja
+    popd
+    popd
+}
+
+package() {
+    DESTDIR="$pkgdir/" ninja -C "libseawolf/build/" install
+}
+

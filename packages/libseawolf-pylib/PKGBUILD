@@ -1,0 +1,29 @@
+pkgname=libseawolf-pylib
+pkgver=1
+pkgrel=1
+depends=('libseawolf')
+arch=('i686' 'x86_64')
+pkgdesc='Basic data structures and utilities for seawolf.'
+source=('git+https://github.com/jsalzbergedu/libseawolf.git#branch=cmake-and-clang')
+md5sums=('SKIP')
+
+build() {
+    pushd libseawolf
+    mkdir build
+    pushd build
+    cmake .. -GNinja
+    ninja pylib
+    popd
+    popd
+}
+
+package() {
+    pushd libseawolf
+    pushd src
+    pushd python
+    python2 setup.py install --root="$pkgdir/" --optimize=1
+    popd
+    popd
+    popd
+}
+
