@@ -12,7 +12,7 @@ SET(legacy_link   ${CMAKE_INSTALL_PREFIX}/libseawolf.so)
 SET(legacy_target ${CMAKE_INSTALL_PREFIX}/libseawolf.so.0)
 ADD_CUSTOM_COMMAND( OUTPUT ${legacy_link}
   COMMAND ln -s ${legacy_target} ${legacy_link}
-  DEPENDS install ${legacy_target} 
+  DEPENDS install ${legacy_link} 
   COMMENT "Generating legacy symbolic link")
 ADD_CUSTOM_TARGET(install_legacy DEPENDS ${legacy_link} )
 
