@@ -11,9 +11,6 @@ add_library(Seawolf::Lib ALIAS seawolf)
 target_link_libraries(seawolf "${DEFAULT_LIBRARIES}")
 
 install(TARGETS seawolf DESTINATION "lib")
-install(CODE
-  "execute_process( COMMAND bash ln -s \"${CMAKE_INSTALL_PREFIX}\"/libseawolf.so \"${CMAKE_INSTALL_PREFIX}\"/libseawolf.so.0)")
-install(DIRECTORY ${LIBSEAWOLF_TOPLEVEL}/include DESTINATION include/seawolf)
 
 add_subdirectory(hub)
 add_subdirectory(python)
