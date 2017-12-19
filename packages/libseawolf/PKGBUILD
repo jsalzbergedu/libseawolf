@@ -10,7 +10,7 @@ build() {
     pushd libseawolf
     mkdir build
     pushd build
-    cmake .. -GNinja
+    cmake -DCMAKE_INSTALL_PREFIX=/usr .. -GNinja
     ninja
     popd
     popd

@@ -11,7 +11,7 @@ build() {
     pushd libseawolf
     mkdir build
     pushd build
-    cmake .. -GNinja
+    cmake .. -GNinja 
     ninja
     ninja pylib
     popd
