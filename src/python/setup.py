@@ -1,5 +1,5 @@
-
 from distutils.core import setup,Extension
+from filebindir import bin_dir
 
 setup(
     name='Seawolf',
@@ -22,7 +22,7 @@ setup(
             swig_opts=['-I../../include/'],
             libraries=['seawolf'],
             include_dirs=['../../include/'],
-            library_dirs=['../'],
+            library_dirs=[bin_dir],
             define_macros=[('_POSIX_C_SOURCE', '200112L'), ('_XOPEN_SOURCE', '600')]
             )],
       )
