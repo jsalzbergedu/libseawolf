@@ -2,9 +2,8 @@ cmake_minimum_required(VERSION 3.1.3)
 project(libseawolf)
 set(CMAKE_CXX_STANDARD 99)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -pedantic -Wmissing-prototypes -D_GNU_SOURCE")
-find_package(PythonInterp REQUIRED)
 set(Python_ADDITIONAL_VERSIONS 2.7 2.6 2.5)
-find_program(PYTHON "python")
+find_package(PythonInterp REQUIRED)
 
 set(LIBSEAWOLF_TOPLEVEL "${CMAKE_CURRENT_SOURCE_DIR}" CACHE INTERNAL "")
 
