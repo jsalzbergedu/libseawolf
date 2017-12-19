@@ -1,9 +1,18 @@
+# Maintainer: Jacob Salzberg <jssalzbe@ncsu.edu>
 pkgname=libseawolf
 pkgver=1
 pkgrel=1
 arch=('i686' 'x86_64')
+url="http://www.ncsurobotics.com/"
+
+# No agreed upon license afaik, but for all intents and purposes open source
+# ¯\_(ツ)_/¯
+license=('APACHE')
+
 pkgdesc='Basic data structures and utilities for seawolf.'
 source=('git+https://github.com/jsalzbergedu/libseawolf.git#branch=cmake-and-clang')
+depends=('glibc')
+makedepends=('git' 'cmake' 'ninja' 'python2')
 md5sums=('SKIP')
 
 build() {
