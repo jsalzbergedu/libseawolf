@@ -66,4 +66,9 @@ endif()
 # Header files 
 include_directories("include")
 include_directories("include/seawolf")
+# Installing header files
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
+  DESTINATION include
+  FILES_MATCHING_PATTERN "*.h*")
+
 add_subdirectory(src)
