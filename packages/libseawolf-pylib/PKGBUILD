@@ -20,7 +20,11 @@ build() {
     pushd build
     cmake .. -GNinja 
     ninja
-    ninja pylib
+    popd # To get back to libseawolf dir
+    pushd src
+    pushd python
+    python2 setup.py build_ext build
+    popd
     popd
     popd
 }

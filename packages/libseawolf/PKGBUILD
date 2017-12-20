@@ -27,5 +27,6 @@ build() {
 
 package() {
     DESTDIR="$pkgdir/" ninja -C "libseawolf/build/" install
+    
 }
 
