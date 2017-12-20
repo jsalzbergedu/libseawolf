@@ -67,8 +67,16 @@ endif()
 include_directories("include")
 include_directories("include/seawolf")
 # Installing header files
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
-  DESTINATION include
-  FILES_MATCHING_PATTERN "*.h*")
+
+set(HEADER_FILES
+  ardcomm.h comm.h config.h dictionary.h list.h logging.h mem_pool.h notify.h pid.h queue.h serial.h stack.h synch.h task.h timer.h util.h var.h)
+
+foreach(FILE ${HEADER_FILES})
+  install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/seawolf/${FILE}
+    DESTINATION include/seawolf)
+endforeach()
+
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/include/seawolf.h
+  DESTINATION include)
 
 add_subdirectory(src)
