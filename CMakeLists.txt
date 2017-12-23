@@ -2,13 +2,14 @@ cmake_minimum_required(VERSION 3.1.3)
 project(libseawolf)
 
 # CPack for automatic packaging
-include(CPack)
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
 set(CPACK_PACKAGE_VERSION_MAJOR 0)
 set(CPACK_PACKAGE_VERSION_MINOR 1)
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Seawolf core libraries")
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER "ncsurobotics@ncsurobotics.com")
+set(CPACK_PACKAGE_CONTACT "ncsurobotics@ncsurobotics.com")
+
+include(CPack) # This line must go after where the variables are set
 
 set(CMAKE_CXX_STANDARD 99)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -pedantic -Wmissing-prototypes -D_GNU_SOURCE")
