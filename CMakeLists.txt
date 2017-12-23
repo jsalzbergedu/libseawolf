@@ -7,15 +7,8 @@ include(CPack)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
 set(CPACK_PACKAGE_VERSION_MAJOR 0)
 set(CPACK_PACKAGE_VERSION_MINOR 1)
-set(CPACK_PACKAGE_CONTACT "NCSU Robotics")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Seawolf core libraries")
-
-# Must -DGEN_DEB 1 at build time to make a .deb from the "package" target
-if (${GEN_DEB})
-  set(CPACK_GENERATOR "DEB")
-  set(CPACK_DEBIAN_PACKAGE_MAINTAINER "NCSU Robotics")
-  # No dependancies outside of build time dependancies
-endif()
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "ncsurobotics@ncsurobotics.com")
 
 set(CMAKE_CXX_STANDARD 99)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -pedantic -Wmissing-prototypes -D_GNU_SOURCE")
