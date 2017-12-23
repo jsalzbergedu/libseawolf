@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1.3)
 add_custom_target(pylib_copy_so
-  COMMAND cp ${CMAKE_BINARY_DIR}/src/libseawolf.so ${CMAKE_CURRENT_SOURCE_DIR}/
+  COMMAND cp -f ${CMAKE_BINARY_DIR}/src/libseawolf.so ${CMAKE_CURRENT_SOURCE_DIR}/
   DEPENDS seawolf)
 add_custom_target(pylib_setup
   COMMAND ln -sf ${CMAKE_CURRENT_SOURCE_DIR}/libseawolf.so ${CMAKE_CURRENT_SOURCE_DIR}/libseawolf.so.${LIBSEAWOLF_SOVERSION}
